@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { getStyles } from '../helpers/index';
 
@@ -118,3 +119,9 @@ class CarsView extends React.Component{
 
 
 export default CarsView;
+
+CarsView.propTypes = {
+    toggleSpinner: PropTypes.func.isRequired,
+    fetchData: PropTypes.func.isRequired,
+    carsApp: PropTypes.object.isRequired,
+}

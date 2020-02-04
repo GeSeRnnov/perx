@@ -7,7 +7,6 @@ export const toggleSpinner = (action) => {
 	return { type: 'toggle-spinner', action };
 }
 export const fetchCars = (action) => {
-		console.log('fetchCars', action);
 	return dispatch => {
 		const { data: carsList, xTotalCount } = action;
 		const dealerList = [...new Set(carsList.map(item => item.dealer))];
