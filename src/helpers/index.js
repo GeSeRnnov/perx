@@ -48,6 +48,13 @@ export const getCarsJoinedDealers = (cars, dealers) => {
 	}, []);
 }
 
+export const getNewDealers = (dealers, stateDealers = {}) => {
+	return dealers.filter((dealer) => {
+		const isPresent = dealer in stateDealers;
+		return !isPresent;
+	});
+}
+
 export const getStyles = () => {
 	return {
         tHeadRow: {

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { getStyles } from '../helpers/index';
-
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -25,7 +24,8 @@ class CarsView extends React.Component{
         const page = this.state.page;
         const rowsPerPage = this.state.rowsPerPage;
         const params = this.getBodyRequest(page, rowsPerPage);
-        this.props.fetchData(params);
+        const dealers = this.props.carsApp.dealers;
+        this.props.fetchData(params, dealers);
     }
 
     getBodyRequest = (page, per_page) => {
@@ -44,7 +44,8 @@ class CarsView extends React.Component{
         this.setState({ page: newPage });
         this.props.toggleSpinner();
         const params = this.getBodyRequest(newPage, this.state.rowsPerPage);
-        this.props.fetchData(params);
+        const dealers = this.props.carsApp.dealers;
+        this.props.fetchData(params, dealers);
     };
 
 

@@ -7,9 +7,9 @@ const mapStateToProps = (store) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    fetchData: params => {
-      const dispatcher = (action) => {
-        dispatch(fetchCars(action));
+    fetchData: (params, dealers)  => {
+        const dispatcher = (action) => {
+        dispatch(fetchCars(action, dealers));
       }
       fetchData({ ...params, callback: dispatcher });
     },
